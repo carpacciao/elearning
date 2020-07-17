@@ -1,37 +1,61 @@
 <template>
   <v-app>
-    <!-- <div>
-      <v-app-bar color="deep-purple accent-4" dark>
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+    <v-navigation-drawer v-model="drawer" app>
+      <v-list nav>
+        <v-list-item-group v-model="item" color="primary">
+          <v-list-item v-for="(item, i) in drawerItems" :key="i" color="primary" link :to="item.to" @click="drawer = false">
+            <v-list-item-icon>
+              <v-icon>{{item.icon}}</v-icon>
+            </v-list-item-icon>
 
-        <v-toolbar-title>Page title</v-toolbar-title>
+            <v-list-item-content>
+              <v-list-item-title>{{item.title}}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
 
-        <v-spacer></v-spacer>
+      <template v-slot:append>
+        <div class="pa-2">
+          <v-btn block>Logout</v-btn>
+        </div>
+      </template>
+    </v-navigation-drawer>
 
-        <v-btn icon>
-          <v-icon>mdi-heart</v-icon>
-        </v-btn>
+    <v-app-bar color="primary" app dark>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-        <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>
+      <v-toolbar-title>
+        <span style="display: inline-block; background: white; height: 32px; width: 32px; border-radius: 50%; color:black;" class="mr-2 text-center">E</span>
+        <span>E-Learning</span>
+      </v-toolbar-title>
 
-        <v-menu left bottom>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn icon v-bind="attrs" v-on="on">
-              <v-icon>mdi-dots-vertical</v-icon>
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-bell</v-icon>
+      </v-btn>
+
+
+      <v-menu left bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn icon v-bind="attrs" v-on="on">
+              <v-avatar size="32" color="green">
+                l
+              </v-avatar>
             </v-btn>
-          </template>
+        </template>
 
-          <v-list>
-            <v-list-item v-for="n in 5" :key="n" @click="() => {}">
-              <v-list-item-title>Option {{ n }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-      </v-app-bar>
-    </div> -->
-    <nuxt />
+        <v-list>
+          <v-list-item v-for="n in 5" :key="n" @click="() => {}">
+            <v-list-item-title>Option {{ n }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-app-bar>
+    <v-main>
+      <nuxt />
+    </v-main>
   </v-app>
 </template>
 
@@ -39,25 +63,24 @@
 export default {
   data() {
     return {
-      clipped: false,
       drawer: false,
-      fixed: false,
-      items: [
+      drawerItems: [
+        {
+          icon: 'mdi-view-dashboard',
+          title: 'Mon dashboard',
+          to: '/dashboard'
+        },
+        {
+          icon: 'mdi-book',
+          title: 'Mes cours',
+          to: '/cursus'
+        },
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
+          title: 'something',
+          to: '/dasbhoard'
         },
       ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js',
     }
   },
 }
