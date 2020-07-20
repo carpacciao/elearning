@@ -72,7 +72,8 @@ export default {
       dark: false,
       themes: {
         light: {
-          primary: "#673ab7",
+          // primary: "#673ab7",
+          primary: "#AA00FF",
           secondary: "#e91e63",
           accent: "#ffeb3b",
           error: "#f44336",
