@@ -10,30 +10,29 @@
         </v-btn>
       </v-layout>
 
-      <v-layout class="mt-5">
-        <v-row>
-          <v-col cols="3" style="position: relative;" v-for="i in 7" :key="i">
-            <v-btn style="position: absolute; top: 16px; right: 16px; z-index: 1;" x-small fab @click.stop="test('b')">
-              <v-icon>mdi-dots-vertical</v-icon>
-            </v-btn>
-            <v-card outlined @click.stop="test('a')">
-              <v-img
-                class="white--text align-end"
-                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-              >
-                <v-card-title>Javascript</v-card-title>
-              </v-img>
+      <v-row class="mt-5">
+        <v-col  cols="12" sm="6" md="4" l="4" xl="3" style="position: relative;" v-for="i in 7" :key="i">
+          <v-btn style="position: absolute; top: 16px; right: 16px; z-index: 1;" x-small fab @click.stop="test('b')">
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+          <v-card outlined @click.stop="test('a')">
+            <v-img
+              class="white--text align-end"
+              src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+            >
+              <v-card-title>Javascript</v-card-title>
+            </v-img>
 
-              <v-card-subtitle>14 chapitres</v-card-subtitle>
+            <v-card-subtitle>14 chapitres</v-card-subtitle>
 
-              <v-card-text class="text--primary">
-                <div>JavaScript (qui est souvent abrégé en « JS ») est un langage de script léger, orienté objet, principalement...</div>
-              </v-card-text>
+            <v-card-text class="text--primary">
+              <div>JavaScript (qui est souvent abrégé en « JS ») est un langage de script léger, orienté objet, principalement...</div>
+            </v-card-text>
 
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-layout>
+          </v-card>
+        </v-col>
+      </v-row>
+
     </v-container>
   </v-layout>
 </template>
